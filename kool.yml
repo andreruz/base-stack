@@ -12,16 +12,13 @@ scripts:
     - kool start
     - kool run composer install
     - kool run artisan key:generate
-  reset-all:
+  reset:
     - kool run clear-all
     - kool run composer install
     - kool run artisan migrate:fresh --seed
     - kool run npm install
     - kool run npm run build
-  reset:
-    - kool run clear-all
-    - kool run composer install
-    - kool run npm install
+  rebuild:
     - kool run npm run build
     - kool run npm run dev
   before-start:
@@ -33,7 +30,7 @@ scripts:
   npm: kool docker kooldev/node:16 npm
   npx: kool docker kooldev/node:16 npx
 
-phpqa: kool docker jakzal/phpqa:php7.4-alpine
+  phpqa: kool docker jakzal/phpqa:php7.4-alpine
   php-cs-fixer: kool run phpqa php-cs-fixer fix --diff -vvv
   php-cs-fixer-check: kool run php-cs-fixer --dry-run
   phpcpd: kool run phpqa phpcpd --fuzzy app
