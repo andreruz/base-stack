@@ -12,16 +12,13 @@ scripts:
     - kool start
     - kool run composer install
     - kool run artisan key:generate
-  reset-all:
+  reset:
     - kool run clear-all
     - kool run composer install
     - kool run artisan migrate:fresh --seed
     - kool run npm install
     - kool run npm run build
-  reset:
-    - kool run clear-all
-    - kool run composer install
-    - kool run npm install
+  rebuild:
     - kool run npm run build
     - kool run npm run dev
   before-start:
