@@ -1,6 +1,6 @@
 <template>
   <div>
-    teste home.vue
+    home.vue
 
     <BlogPost
         v-for="post in posts"
